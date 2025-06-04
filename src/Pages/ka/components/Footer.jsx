@@ -1,4 +1,4 @@
-import Globals from '@/globals.js'
+import { Globals } from '@/globals';
 import styles from '@/Css/Footer.module.css'
 
 function Footer() {

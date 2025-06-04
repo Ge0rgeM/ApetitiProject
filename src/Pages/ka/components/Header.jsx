@@ -1,5 +1,5 @@
-import styles from '@/Css/Header.Module.css'
-import Globals from '@/globals.js'
+import styles from '@/Css/Header.Module.css';
+import { Globals } from '@/globals';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/Context/Context.jsx';
 
