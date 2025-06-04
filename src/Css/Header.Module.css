@@ -96,7 +96,7 @@ header .headerWrapper nav {
     display: flex;
     margin-right: 10px;
 }
-.language-switch div, #en{
+.language-switch div, .en{
     all:unset;
     margin-right: 15px;
     cursor: pointer;

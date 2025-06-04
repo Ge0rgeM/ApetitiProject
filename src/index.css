@@ -23,14 +23,14 @@ body  {
 }
 .temp{
     width: 100%;
-    height: 500px;
+    height: 300px;
     background-color: transparent;
  }
 .bodyWrapper{
     width: 100%;
     height: 100vh;
     background-color: black;
-    background-image: url(./assets/BackgroundPic.jpg);
+    background-image: url(@/assets/BackgroundPic.jpg);
     position: fixed;
 }
 .bodyWrapperShade{
