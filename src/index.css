@@ -1,0 +1,42 @@
+:root{
+    --white: rgb(255, 255, 255);
+    --whiteTransparency: rgba(255, 255, 255, 0.85);
+    --gray: rgb(51, 51, 51);
+    --grayTransparency: rgba(51, 51, 51, 0.7);
+    --green: rgb(18, 78, 6);
+    --greenTransparency: rgba(18, 78, 6, 0.5);
+    --fonts: "Open Sans";
+    --formWidth: 50%;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* html * {
+    border: red 1px dotted;
+} */
+body  {
+    margin: 0; 
+    padding: 0;
+    justify-content: center;
+    font-family: var(--fonts);
+    transition: opacity 0.3s ease-in-out;
+}
+.temp{
+    width: 100%;
+    height: 500px;
+    background-color: transparent;
+ }
+.bodyWrapper{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    background-image: url(./assets/BackgroundPic.jpg);
+    position: fixed;
+}
+.bodyWrapperShade{
+    background-color: rgba(0, 0, 0, 0.79);
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    overflow-y: scroll;
+}
