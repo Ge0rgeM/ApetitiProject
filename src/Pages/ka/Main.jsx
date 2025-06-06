@@ -8,11 +8,10 @@ function Main() {
         <>
             <div className="bodyWrapper">
                 <div className="bodyWrapperShade">
-                    <div className="temp"></div>
                     <Header />
                     <Carousel />
                     <Greeting />
-                    <div className="temp"></div>
+                    {/* <div className="temp"></div> */}
                     <Footer />
                 </div>
             </div>

@@ -1,29 +1,20 @@
 import styles from '@/Css/Header.Module.css';
 import { Globals } from '@/globals';
-import { Link, useNavigate } from 'react-router-dom';
-import { useLanguage } from '@/Context/Context.jsx';
-
+import { Link } from 'react-router-dom';
+import { useHeaderUtils } from '@/Pages/utils/HeaderUtils';
 function Header() {
-    const {language, setLanguage} = useLanguage();
-    const navigate = useNavigate()
-    const mainPageRoute = () => {
-        console.log(language);
-        language === 'ka' ? navigate('/ka/Main') : navigate('/en/Main');
-    }
-    const switchLanguage = () => {
-        setLanguage(l => l = 'en');
-    }
+    const { mainPageRoute, switchLanguage } = useHeaderUtils();
     return (
         <header>
-            <div className={styles.headerWrapper}>
+            <div className={styles.headerWrapper} id='header'>
                 <div className={styles.logo}>
-                    <Link className={styles.navLink} onClick={mainPageRoute}>
+                    <Link className={styles.navLink} onClick={(e) => mainPageRoute(e)} to='#'>
                         <img src={Globals.logo} alt="apetiti logo"></img>
                     </Link>
                 </div>
                 <nav>
                     <ul className={styles.navLinks}>
-                        <li className={styles.navLink}><a data-translate="main" href="">მთავარი</a></li>
+                        <li className={styles.navLink}><a data-translate="main" href="#">მთავარი</a></li>
                         <li className={styles.navLink}><a data-translate="aboutUs" href="#">ჩვენ შესახებ</a></li>
                         <li className={styles.navLink + ' ' + styles.dropDown}>
                             <a data-translate="services" href="#">სერვისები</a>
@@ -38,7 +29,7 @@ function Header() {
                     </ul>
                 </nav>
                 <div className={styles['language-switch']}>
-                    <Link to={"/en/Main"} onClick={switchLanguage} className={styles.en}>English</Link>
+                    <Link onClick={(e) => switchLanguage(e)} to="#" className={styles.en}>English</Link>
                 </div>
             </div>
         </header>

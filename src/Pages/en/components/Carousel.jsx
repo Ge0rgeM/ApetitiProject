@@ -48,7 +48,7 @@ function Carousel() {
   return (
     <>
       <div className={styles.indexHeader}>
-          <p data-translate="indexHeader">ჩვენი სერვისები</p>
+          <p data-translate="indexHeader">Our Services</p>
       </div>
       <section className={styles.carousel}>
         <div className={styles.leftArrow}>
@@ -73,7 +73,7 @@ function Carousel() {
             style={{ backgroundImage: `url(${details.imgUrl})` }}
             >
               <div data-translate={`descriptionId${details.id}`} className={styles.slideDescription}>
-                <p>{details.descriptionKa}</p>
+                <p>{details.descriptionEn}</p>
               </div>
             </div>
           ))}

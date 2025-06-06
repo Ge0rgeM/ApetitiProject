@@ -10,6 +10,8 @@
 .greeting-title{
     font-size: 2em;
     color: var(--white);
+    font-weight: bold;
+    text-align: center;
 }
 
 .greeting-text{
@@ -38,15 +40,4 @@
     color: var(--gray);
     background-color: var(--white);
     border-radius: 7px;
-}
-.indexHeader{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: 10vw;
-    color: var(--white);
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
 }

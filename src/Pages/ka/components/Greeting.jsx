@@ -15,7 +15,7 @@ function Greeting() {
                     ქართული რესტორნები არა მხოლოდ შესანიშნავ საკვებს სთავაზობენ, არამედ სტუმრებს ნამდვილ ქართულ გამოცდილებას აძლევენ – ტრადიციული მუსიკით, ცეკვებითა და განუმეორებელი სტუმართმოყვარეობით.</p>
             </div>
             <div className={styles['contuct-us']}>
-                <Link to={'/ka/contact'} className={styles['contact-link']}> 
+                <Link to={'/ka/Contact'} className={styles['contact-link']}> 
                     <div data-translate = "contactUs">დაგვიკავშირდით</div>
                 </Link>
             </div>
