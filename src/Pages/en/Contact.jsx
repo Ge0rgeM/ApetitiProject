@@ -5,8 +5,12 @@ import Footer from '@/Pages/en/components/Footer'
 function Contact() {
     return (
         <>
-            <Header />
-            <Footer />
+            <div className="bodyWrapper">
+                <div className="bodyWrapperShade">
+                    <Header />
+                    <Footer />
+                </div>
+            </div>
         </>
     );
 }

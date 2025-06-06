@@ -1,5 +1,3 @@
-// src/hooks/useHeaderActions.js
-import { useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '@/Context/Context.jsx';
 
@@ -7,31 +5,31 @@ export function useHeaderUtils() {
     const { language, setLanguage } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
-    // const scrollOnNavigate = useRef(false); // flag to trigger scroll after route change
-    // useEffect(() => {
-    //     if (scrollOnNavigate.current) {
-    //         window.scrollTo({ top: -0, behavior: 'smooth' });
-    //         scrollOnNavigate.current = false;
-    //     }
-    // }, [location.pathname]);
 
-const mainPageRoute = (e) => {
-    e.preventDefault();
-    let currPath = language === 'ka' ? '/ka/Main' : '/en/Main';
-
-    if (location.pathname === currPath) {
+    function ifNewRouteSameScrollTop(pageName){
+        let currPath = language === 'ka' ? '/ka/' + pageName : '/en/' + pageName;
         console.log(location.pathname, currPath)
-        // ✅ Already on the page, just scroll
-        const container = document.getElementsByClassName('bodyWrapperShade')[0];
-        container.scrollTo({top: 0, behavior: 'smooth'});
-    } else {
-        // ✅ Navigate and let natural scroll-to-top happen
-        navigate(currPath);
+            if (location.pathname === currPath || location.pathname === '/') {
+                // ✅ Already on the page, just scroll
+                const container = document.getElementsByClassName('bodyWrapperShade')[0];
+                container.scrollTo({top: 0, behavior: 'smooth'});
+                
+                return [true, currPath];
+            }
+        return [false, currPath];
     }
-};
+
+    const samePageRoute = (e, pageName) => {
+        e.preventDefault();
+        let [isSame, currPath] = ifNewRouteSameScrollTop(pageName);
+         
+        console.log(isSame)
+        if (!isSame) {
+            navigate(currPath);
+        }
+    };
 
     const switchLanguage = (e) => {
-        // scrollOnNavigate.current = true;
         e.preventDefault();
 
         let newPath = location.pathname;
@@ -58,5 +56,5 @@ const mainPageRoute = (e) => {
         navigate(newPath);
     };
 
-    return { mainPageRoute, switchLanguage };
+    return { samePageRoute, switchLanguage };
 }

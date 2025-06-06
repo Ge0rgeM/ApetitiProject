@@ -3,18 +3,18 @@ import { Globals } from '@/globals';
 import { Link } from 'react-router-dom';
 import { useHeaderUtils } from '@/Pages/utils/HeaderUtils';
 function Header() {
-    const { mainPageRoute, switchLanguage } = useHeaderUtils();
+    const { samePageRoute, switchLanguage } = useHeaderUtils();
     return (
         <header>
             <div className={styles.headerWrapper} id='header'>
                 <div className={styles.logo}>
-                    <Link className={styles.navLink} onClick={(e) => mainPageRoute(e)} to='#'>
+                    <Link className={styles.navLink} onClick={(e) => samePageRoute(e, 'Main')} to='#'>
                         <img src={Globals.logo} alt="apetiti logo"></img>
                     </Link>
                 </div>
                 <nav>
                     <ul className={styles.navLinks}>
-                        <li className={styles.navLink}><a data-translate="main" href="">Main</a></li>
+                        <li className={styles.navLink}><a data-translate="main" href="#">Main</a></li>
                         <li className={styles.navLink}><a data-translate="aboutUs" href="#">About Us</a></li>
                         <li className={styles.navLink + ' ' + styles.dropDown}>
                             <a data-translate="services" href="#">Services</a>
@@ -25,7 +25,7 @@ function Header() {
                             </ul>
                         </li>
                         <li className={styles.navLink}><a data-translate="cafe" href="#">Cafe</a></li>
-                        <li className={styles.navLink}><a data-translate="contact" href="#">Contact</a></li>
+                        <li className={styles.navLink}><a data-translate="contact" href="#" onClick={(e) => samePageRoute(e, 'Contact')}>Contact</a></li>
                     </ul>
                 </nav>
                 <div className={styles['language-switch']}>
