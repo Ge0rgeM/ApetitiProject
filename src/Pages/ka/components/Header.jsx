@@ -3,7 +3,7 @@ import { Globals } from '@/globals';
 import { Link } from 'react-router-dom';
 import { useHeaderUtils } from '@/Pages/utils/HeaderUtils';
 function Header() {
-    const { samePageRoute, switchLanguage, contactPageRoute } = useHeaderUtils();
+    const { samePageRoute, switchLanguage } = useHeaderUtils();
     return (
         <header>
             <div className={styles.headerWrapper} id='header'>
