@@ -1,8 +1,11 @@
 import styles from '@/Css/Carousel.module.css';
 import { allImages } from '@/globals';
 import { useEffect, useRef, useState } from 'react';
+import SmoothScrolling from "@/SmoothScrolling/SmoothScrolling";
 
 function Carousel() {
+  const fadingHeader = SmoothScrolling();
+  const fading = SmoothScrolling();
   const slideRefs = useRef([]);
   const [index, setIndex] = useState(0);
   let slideWidth = 0;
@@ -47,10 +50,10 @@ function Carousel() {
 
   return (
     <>
-      <div className={styles.indexHeader}>
-          <p data-translate="indexHeader">ჩვენი სერვისები</p>
+      <div ref={fadingHeader} className={styles.indexHeader}>
+          <p data-translate="indexHeader">ჩვენი სერვისები</p>  
       </div>
-      <section className={styles.carousel}>
+      <section ref={fading} className={styles.carousel}>
         <div className={styles.leftArrow}>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
             <path

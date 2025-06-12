@@ -1,9 +1,11 @@
 import { Globals } from '@/globals';
 import styles from '@/Css/Footer.module.css'
+import SmoothScrolling from "@/SmoothScrolling/SmoothScrolling";
 
 function Footer() {
+    const fading = SmoothScrolling();
     return (
-        <footer>
+        <footer ref={fading}>
             <div className={styles.footerWrapper}>
                 <div className={styles.footerLogo}>
                     <img src={Globals.logo} alt="Apetiti logo"/>

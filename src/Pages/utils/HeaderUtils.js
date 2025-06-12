@@ -9,7 +9,7 @@ export function useHeaderUtils() {
     function ifNewRouteSameScrollTop(pageName){
         let currPath = language === 'ka' ? '/ka/' + pageName : '/en/' + pageName;
         console.log(location.pathname, currPath)
-            if (location.pathname === currPath || location.pathname === '/') {
+            if (location.pathname === currPath) {
                 // ✅ Already on the page, just scroll
                 const container = document.getElementsByClassName('bodyWrapperShade')[0];
                 container.scrollTo({top: 0, behavior: 'smooth'});

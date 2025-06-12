@@ -1,9 +1,12 @@
 import styles from '@/Css/Greeting.module.css'
 import { Link, useNavigate } from 'react-router-dom';
+import SmoothScrolling from "@/SmoothScrolling/SmoothScrolling";
+
 function Greeting() {
+    const fading = SmoothScrolling();
 
     return (
-        <div className={styles.greeting}>
+        <div ref={fading} className={styles.greeting}>
             <div className={styles['greeting-title']}>
                 <p data-translate="greetingTitle">შენი სახლური გემო</p>
             </div>

@@ -1,0 +1,140 @@
+.menuWrapper {
+    padding: 16px;
+    /* margin-top: 100px; */
+    width: 60vw;
+    margin: 100px auto;
+}
+
+.menuSearchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 16px; */
+}
+
+.searchInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    flex: 1;
+    margin-right: 8px;
+    transition: box-shadow .2s ease-in-out;
+    border:none
+}
+
+.searchButton {
+    padding: 8px 16px;
+    background-color: #09862f;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.searchButton:hover {
+    background-color: #06511c;;
+}
+.searchInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #09862f inset;
+    /* box-shadow: 0 0 5px rgba(9, 134, 47, 0.5); */
+}
+.filterWrapper{
+    width: 80%;
+    margin: auto;
+}
+
+.filterButton{
+    border:none;
+    width: 100%;
+    background-color: rgb(70, 70, 75);
+    margin-top: 5px;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.filterDropdown{
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    padding: 20px;
+    background-color: rgb(70, 70, 75);
+    border-radius: 0 0 5px 5px;
+}
+.filterDropdown.show {
+  max-height: 500px; /* Large enough to fit content */
+  opacity: 1;
+  margin-bottom: 20px;
+}
+.filterItem{
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.menuCheckboxes{
+  width: 15px;
+  height: 15px;
+}
+.menuContainer{
+    width: 100%;
+    /* border: 3px rgb(70, 70, 75) solid; */
+    border-radius: 10px;
+    background-color: transparent;
+    height: 800px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    /* border: 1px solid rgba(255, 255, 255, 0.3); */
+    padding: 1px;
+}
+.item{
+    height: 120px;
+    background-color: transparent;
+    border-radius: 5px;
+    /* border: 1px solid white; */
+    margin: 32px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); 
+}
+.itemPhotoWrapper{
+    width: 30%;
+    max-width: 165px;
+    overflow: hidden;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+.itemPhotoWrapper img {
+    width: 100%;
+    height: auto;
+    max-width: 165px;
+    max-height: 110px;
+    border-radius: 5px;
+    object-fit: cover; /* optional, trims overflow if necessary */
+}
+
+.itemDescriptionWrapper{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+}
+.itemDescription{
+    width: 80%;
+}
+.itemOptions{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 110px;
+    cursor: pointer;
+}

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styles from '@/Css/ContactUsForm.module.css';
 import { isEmpty, isValidEmail, isValidPhone, isValidMessage, contactFormSubmit } from '@/Pages/utils/ContactUtils';
+import SmoothScrolling from "@/SmoothScrolling/SmoothScrolling";
+
 function ContactUsForm() {
     const [name, setName] = useState('');
     const [showNameError, setShowNameError] = useState(false);
@@ -12,16 +14,9 @@ function ContactUsForm() {
     const [showPhoneError, setShowPhoneError] = useState(false);
     const [message, setMessage] = useState('');
     const [showMessageError, setShowMessageError] = useState(false);
-
-    // console.log(name)
-    // console.log(surname)
-    // console.log(email)
-    // console.log(phone)
-    // console.log(message)
-
-
+    const fading = SmoothScrolling();
     return (
-        <div className={styles.contactWrapper}>
+        <div className={styles.contactWrapper} ref={fading}>
             <div className={styles.contact}>
                 <div className={styles.title}>
                     <p data-translate="contactUsForm">დაგვიკავშირდით</p>
@@ -64,7 +59,7 @@ function ContactUsForm() {
                             <textarea onChange={e => {
                                 const val = e.target.value;
                                 setMessage(m => m = val);
-                                setShowMessageError(s => s = isValidMessage(val));
+                                setShowMessageError(s => s = !isValidMessage(val));
                             }} id="message" name="message" rows="4" placeholder="ტექსტი..." required="" data-translate-placeholder="messageForm"></textarea>
                             <label id="message-error" className={styles.error} style={{display: showMessageError ? 'block' : 'none'}} htmlFor="message" data-translate="messageFormError">გთხოვთ დაწეროთ ტექსტი</label>
                         </div>
