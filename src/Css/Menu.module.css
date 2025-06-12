@@ -13,8 +13,13 @@
 }
 
 .searchInput {
+    height: 20px;
+    color: white;
     padding: 8px;
-    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     flex: 1;
     margin-right: 8px;
@@ -36,7 +41,7 @@
 }
 .searchInput:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #09862f inset;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2) inset;
     /* box-shadow: 0 0 5px rgba(9, 134, 47, 0.5); */
 }
 .filterWrapper{
@@ -81,36 +86,38 @@
     width: 100%;
     /* border: 3px rgb(70, 70, 75) solid; */
     border-radius: 10px;
-    background-color: transparent;
-    height: 800px;
-    background-color: rgba(255, 255, 255, 0.1);
+    /* height: 800px; */
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     /* border: 1px solid rgba(255, 255, 255, 0.3); */
-    padding: 1px;
+    padding: 10px;
 }
 .item{
     height: 120px;
-    background-color: transparent;
     border-radius: 5px;
-    /* border: 1px solid white; */
+    border: 1px solid rgba(255, 255, 255, 0.1);
     margin: 32px;
     display: flex;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25); 
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1) inset; 
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+}
+.item:hover{
+    transform: scale(1.01);
 }
 .itemPhotoWrapper{
     width: 30%;
-    max-width: 165px;
     overflow: hidden;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     padding: 5px;
 }
 .itemPhotoWrapper img {
@@ -137,4 +144,44 @@
     align-items: center;
     font-size: 110px;
     cursor: pointer;
+}
+
+.circle {
+    position: absolute;
+    top: -30px; /* Above the catalog box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* clip-path: inset(0 0 50% 0); */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 4px 32px rgba(255, 255, 255, 0.2);
+    transition: opacity .5s ease-in-out;
+}
+.Capa_1{
+    width: 70%;
+    fill: white;
+}
+.cartWrapper{
+    position: fixed;
+    top: 150px; /* Adjust as needed */
+    height: 90vh;
+    width: 90vw;
+    background-color: green;
+    z-index: 1000;
+    right: 5vw;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 32px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
 }
