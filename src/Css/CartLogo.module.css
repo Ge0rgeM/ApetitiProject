@@ -1,0 +1,54 @@
+.cartBadge {
+    position: absolute;
+    transform: translate(-100%, -70%);
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 999px;
+    text-align: center;
+    z-index: 2;
+}
+.circle {
+    position: absolute;
+    top: -30px; /* Above the catalog box */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* clip-path: inset(0 0 50% 0); */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    box-shadow: 0 4px 32px rgba(255, 255, 255, 0.2);
+    transition: opacity .5s ease-in-out;
+}
+.Capa_1{
+    width: 70%;
+    fill: white;
+    transition: fill 0.1s ease-in-out, transform 0.1s ease-in-out;
+
+}
+.Capa_1:hover{
+    fill:#42a660;
+}
+@keyframes pop {
+    0% {
+        transform: translate(-100%, -70%) scale(1);
+    }
+    30% {
+        transform: translate(-100%, -70%) scale(1.5);
+    }
+    100% {
+        transform: translate(-100%, -70%) scale(1);
+    }
+}
+.popAnimation {
+    animation: pop 0.3s ease;
+}

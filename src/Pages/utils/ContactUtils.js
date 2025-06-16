@@ -1,5 +1,3 @@
-import { method } from "lodash";
-
 export const isEmpty = (txt) => {
     return !txt || txt.trim().length === 0;
 }
