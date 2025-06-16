@@ -13,9 +13,8 @@ function Menu() {
     const [query, setQuery] = useState('');
     const [checkedCategories, setCheckedCategories] = useState(['ყველა']);
     const [cartItems, setCartItems] = useState([]);
-    console.log(cartItems);
     const results = useSearching(query, checkedCategories);
-    
+    console.log("Cart items:", results);    
     const categories = ["ყველა", "მეგრული კერძები შეფისგან", "ცხელი კერძები", "სუპები", "დესერტი"];
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -35,6 +34,8 @@ function Menu() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [showCart]);
+
+    const isInCart = (itemId) => cartItems.some(cartItem => cartItem.id === itemId);
 
     return (
         <>
@@ -77,12 +78,22 @@ function Menu() {
                         onClick={() => {setShowCart(!showCart); setShowCartIcon(!showCartIcon);}} 
                     />
                     {results.length > 0 ? results.map((item, index) => (
-                    <div className={styles.item} key={index}>
+                    <div className={`${styles.item} ${isInCart(item.id) ? styles.selectedItem : ''}`} key={index}>
                             <div className={styles.itemPhotoWrapper}>
                                 <img src={item.photo_url} alt={item.name}/>
                             </div>
                         <div className={styles.itemDescriptionWrapper}>
-                            <div className={styles.itemDescription}>{item.name}</div>
+                            <div className={styles.itemDescription}>
+                                <div className={styles.itemName}>
+                                    {item.name}
+                                </div>
+                                <div className={styles.itemPrice}>
+                                    {item.price}
+                                </div>
+                                <div className={styles.itemDescriptionText}>
+                                    {item.description}
+                                </div>
+                            </div>
                             <div className={styles.itemOptions}>
                                 <svg 
                                     onClick={() =>{
@@ -93,7 +104,7 @@ function Menu() {
                                             );
                                             setCartItems(updatedCart);
                                         } else {
-                                            setCartItems([...cartItems, { id: item.id, name: item.name, quantity: 1, photo_url: item.photo_url }]);
+                                            setCartItems([...cartItems, { id: item.id, name: item.name, quantity: 1, photo_url: item.photo_url, price: item.price }]);
                                         }
                                     }} 
                                     xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" fill="#FFFFFF" version="1.1" className={styles.Capa_1} viewBox="0 0 902.86 902.86" xmlSpace="preserve">
@@ -124,7 +135,14 @@ function Menu() {
                                 <img src={item.photo_url} alt={item.name}/>
                             </div>
                         <div className={styles.itemDescriptionWrapper}>
-                            <div className={styles.itemDescriptionCart}>{item.name}</div>
+                            <div className={styles.itemDescriptionCart}>
+                                <div className={styles.itemName}>
+                                    {item.name}
+                                </div>
+                                <div className={styles.itemPrice}>
+                                    {item.price}
+                                </div>
+                            </div>
                             <div className={styles.itemOptionsCart}>
                                 <div className={styles.increaseDecrease}>
                                     <div className={styles.increase} 
@@ -134,17 +152,23 @@ function Menu() {
                                             setCartItems(updatedCart);
                                         }}  
                                     >
-                                        +
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                            <g id="Edit / Add_Plus">
+                                                <path id="Vector" d="M6 12H12M12 12H18M12 12V18M12 12V6" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </g>
+                                        </svg>
                                     </div>
                                     <div className={styles.quantity}>{item.quantity}</div>
                                     <div className={styles.decrease} 
                                         onClick={() => {
                                             const updatedCart = cartItems.map((cartItem) =>
-                                            cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem);
+                                            cartItem.id === item.id && cartItem.quantity-1>0 ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem);
                                             setCartItems(updatedCart);
                                         }}
                                     >
-                                        -
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 12L18 12" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
                                     </div>
                                 </div>
                                 <div className={styles.deleteCartItem}
@@ -161,6 +185,10 @@ function Menu() {
                     )) : (
                         <div className={styles.noResults}>No results found</div>
                     )}
+                </div>
+                <div className={styles.cartTotal}>
+                    <span>Total:</span>
+                    <span>{cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)} $</span>
                 </div>
                 <button>Send Order</button>
             </div>
